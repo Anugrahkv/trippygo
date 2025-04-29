@@ -1,0 +1,346 @@
+{% extends "headerfootermain.html" %}
+	{% block content %}
+<!-- booking form -->
+<section class="booking py-5" id="booking">
+	<h3 class="text-center mb-4 text-success">{{success}}</h3>
+
+	<h3 class="text-center mb-4">Search Your Tour</h3>
+	<div class="container">
+		<div class="book-form">
+		   <form action="#" method="post">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-6 px-2 form-time-w3layouts editContent">
+						<label class="editContent"><span class="fa fa-user" aria-hidden="true"></span> Traveller Name</label>
+						<input type="text" placeholder="Your Full Name" required="">
+				</div>
+				<div class="col-md-3 col-sm-6 col-6 px-2 form-time-w3layouts editContent">
+						<label class="editContent"><span class="fa fa-map-marker" aria-hidden="true"></span>Package type</label>
+						<select class="form-control">
+							<option>Type</option>
+							<option>Solo</option>
+							<option>Couple</option>
+							<option>Group</option>
+							<option>Family</option>
+							<option>Bachelers</option>
+							<option>Ladies</option>
+						</select>
+				</div>
+				<div class="col-md-3 col-sm-6 col-6 px-2 form-time-w3layouts editContent">
+						<label class="editContent"><span class="fa fa-map-marker" aria-hidden="true"></span> Number of members</label>
+						<select class="form-control">
+							<option>numbers</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+							<option>13</option>
+							<option>14</option>
+							<option>15</option>
+							<option>16</option>
+							<option>17</option>
+							<option>18</option>
+							<option>19</option>
+							<option>20</option>
+							<option>21</option>
+							<option>22</option>
+							<option>23</option>
+							<option>24</option>
+							<option>25</option>
+							<option>26</option>
+							<option>27</option>
+							<option>28</option>
+							<option>29</option>
+							<option>30</option>
+							<option>more than 30</option>
+						</select>
+				</div>
+				<div class="col-md-3 col-sm-6 col-6 px-2 form-date-w3-agileits editContent">
+						<label class="editContent"><span class="fa fa-map-marker" aria-hidden="true"></span> Tour place</label>
+						<select class="form-control">
+							<option>Destination</option>
+							<option>Andhra Pradesh</option>
+							<option>Arunachal Pradesh</option>
+							<option>Assam</option>
+							<option>Bihar</option>
+							<option>Chattisgarh</option>
+							<option>Goa</option>
+							<option>Gujarat</option>
+							<option>Haryana</option>
+							<option>Himachal Pradesh</option>
+							<option>Jharkhand</option>
+							<option>Karnataka</option>
+							<option>Kerala</option>
+							<option>Madhya Pradesh</option>
+							<option>Maharastra</option>
+							<option>Manipur</option>
+							<option>Meghalaya</option>
+							<option>Mizoram</option>
+							<option>Nagaland</option>
+							<option>Odisha</option>
+							<option>Punjab</option>
+							<option>Rajasthan</option>
+							<option>Sikkim</option>
+							<option>Tamil Nadu</option>
+							<option>Telangana</option>
+							<option>Tripura</option>
+							<option>Uttarakhand</option>
+							<option>Uttar Pradesh</option>
+							<option>West Bengal</option>
+						</select>
+				</div>
+				<div class="col-md-2 col-sm-4 col-6 px-2 form-left-agileits-w3layouts editContent">
+						<label class="editContent"><span class="fa fa-bus" aria-hidden="true"></span> Trip in</label>
+					<div class="agileits_w3layouts_main_gridl">
+						<input class="date has Datepicker" id="datepicker" name="Text" type="text" value="Start Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select Date';}" required="">
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-4 col-6 px-2 form-left-agileits-w3layouts editContent">
+						<label class="editContent"><span class="fa fa-bus" aria-hidden="true"></span> Trip out</label>
+					<div class="agileits_w3layouts_main_gridl">
+						<input class="date has Datepicker" id="datepicker1" name="Text" type="text" value="Return Date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select Date';}" required="">
+					</div>
+				</div>
+				<div class="col-md-2 px-2 col-sm-4 col-6 form-left-agileits-submit editContent">
+					  <input type="submit" value="Search">
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- //booking form -->
+
+<!-- booking bottom -->	
+<section class="bottom py-5">
+	<div class="container">
+		<div class="row bottom-grids">
+			<div class="col-md-6 grid1">
+				<h4 class="mb-4">Discount 10-35% off</h4>
+				<h3 class="mb-4">Travel the world with RUSHDA</h3>
+				<a href="#">Read More</a>
+			</div>
+			<div class="col-md-3 video-play">
+				<!-- video -->
+				<div class="video-grid1 mt-4">
+					<div class="demo-bg1">
+						<div class="pop-bg position-relative">
+							<div class="arrow-container animated fadeInDown">
+								<a href="#small-dialog1" class="arrow-2 popup-with-zoom-anim">
+									<i class="fa fa-play"></i>
+								</a>
+								<div class="arrow-1 animated hinge infinite zoomIn"></div>
+							</div>
+							<h4 class="mt-3">Watch video</h4>
+							<!--  video-button-popup -->
+							<div id="small-dialog1" class="mfp-hide">
+								<div class="agileits_modal_body">
+									<iframe src="https://player.vimeo.com/video/162413069"></iframe>
+								</div>
+							</div>
+							<!-- // video-button-popup -->
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-3 mt-md-0 mt-4">
+				<img src="/static/assets/images/off.jpg" alt="" class="img-fluid" />
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //booking bottom -->	
+
+<!-- welcome -->
+<section class="welcome py-5">
+	<div class="container py-3">
+	<h3 class="heading text-center mb-md-5 mb-4"> About Us </h3>
+		<div class="row welcome-grids">
+			<div class="col-lg-6">
+				<h4 class="mb-3">welcome to the travel world</h4>
+				<h3>Remember that happiness is a way of travel, not a destination.</h3>
+				<p class="my-4">Aliquam consequat rhoncus ipsum et hendrerit. Proin sed nibhila rin iaculis, aliquet nunc nec, ornare nulla. Duis maximus faucibus ipsum consectetur. Donec elementum hendrerit arcu id rhoncus initis. lot Suspendisse ut elementum nunc. Aenean aliquam porta sem ins tincidunt congue. Phasellus dictum viverra sem id vehicula. Fus cenec elementum sapien.</p>
+				<a href="#">Read More</a>
+			</div>
+			<div class="col-lg-6 mt-lg-0 mt-5 welcome-grid3">
+				<div class="position">
+					<img src="/static/assets/images/banner1.jpg" alt="" class="img-fluid" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //welcome -->
+
+<!-- /services -->
+<section class="featured_services py-5">
+	<div class="container py-3">
+		<h3 class="heading text-center mb-5">Our Services</h3>
+		<div class="row agile_inner_info">
+			<div class="col-lg-4 col-md-6 w3_agile_services_grid">
+				<div class="agile_services_grid">
+					<div class="hover06 column">
+						<div>
+							<figure><img src="/static/assets/images/s1.jpg" alt=" " class="img-responsive"></figure>
+						</div>
+					</div>
+					<div class="agile_services_grid_pos">
+						<i class="fa fa-globe" aria-hidden="true"></i>
+					</div>
+				</div>
+				<h4>Tempus eu turpis</h4>
+				<p>Lorem ipsum dolor sit amet, do eiusmod tempor incididunt .Aliquam lacus turpis.</p>
+			</div>
+			<div class="col-lg-4 col-md-6 mt-md-0 mt-5 w3_agile_services_grid">
+				<div class="agile_services_grid">
+					<div class="hover06 column">
+						<div>
+							<figure><img src="/static/assets/images/s2.jpg" alt=" " class="img-responsive"></figure>
+						</div>
+					</div>
+					<div class="agile_services_grid_pos">
+						<i class="fa fa-suitcase" aria-hidden="true"></i>
+					</div>
+				</div>
+				<h4>Lobortis quis dolor</h4>
+				<p>Lorem ipsum dolor sit amet, do eiusmod tempor incididunt .Aliquam lacus turpis.</p>
+			</div>
+			<div class="col-lg-4 col-md-6 mt-lg-0 mt-5 w3_agile_services_grid">
+				<div class="agile_services_grid">
+					<div class="hover06 column">
+						<div>
+							<figure><img src="/static/assets/images/s3.jpg" alt=" " class="img-responsive"></figure>
+						</div>
+					</div>
+					<div class="agile_services_grid_pos">
+						<i class="fa fa-bed" aria-hidden="true"></i>
+					</div>
+				</div>
+				<h4>Dignissim rhoncus</h4>
+				<p>Lorem ipsum dolor sit amet, do eiusmod tempor incididunt .Aliquam lacus turpis.</p>
+			</div>
+			<div class="mx-auto mt-lg-4 mt-5 text-center">
+				<a href="services.html">Explore all Services</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //services -->
+
+<!--/middle-->
+<section class="middle-sec-agileinfo-w3ls py-5">
+	<div class="container py-3">
+		<h3 class="heading text-center mb-5"> Latest Tour Blog </h3>
+			<div class="row inner-sec">
+				<div class="col-lg-4 col-md-6 news-left">
+					<ul id="demo1_thumbs" class="list-inline">
+						<li>
+							<a href="/static/assets/images/banner1.jpg">
+								<img src="/static/assets/images/b1.jpg" alt="" data-desoslide-caption="<h3>Latest Post 1</h3>">
+								<div class="mid-text-info">
+									<h4>Maecenas aliqua Aenean aliquam porta sem ins.</h4>
+									<p class="font-italic">posted 2 days ago </p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/static/assets/images/banner2.jpg">
+								<img src="/static/assets/images/b2.jpg" alt="" data-desoslide-caption="<h3>Latest Post 2</h3>">
+								<div class="mid-text-info">
+									<h4>Maecenas aliqua Aenean aliquam porta sem ins.</h4>
+									<p class="font-italic">posted 2 days ago </p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/static/assets/images/banner5.jpg">
+								<img src="/static/assets/images/b5.jpg" alt="" data-desoslide-caption="<h3>Latest Post 3</h3>">
+								<div class="mid-text-info">
+									<h4>Maecenas aliqua Aenean aliquam porta sem ins.</h4>
+									<p class="font-italic">posted 2 days ago </p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="/static/assets/images/banner4.jpg">
+								<img src="/static/assets/images/b4.jpg" alt="" data-desoslide-caption="<h3>Latest Post 4</h3>">
+								<div class="mid-text-info">
+									<h4>Maecenas aliqua Aenean aliquam porta sem ins.</h4>
+									<p class="font-italic">posted 2 days ago </p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div id="demo1_main_image" class="col-lg-8 col-md-6 news-right">
+					<h4 class="text-uppercase mb-4">Happy Travelling </h4>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+
+	</section>
+	<!--//middle-->
+
+<!-- team -->
+	<div class="team py-5">
+	   <div class="agile_dot_info two">
+		<div class="container">
+		<h3 class="heading text-center mb-5">Our Team</h3>
+			<div class="row agileits_team_grids">
+				<div class="col-lg-3 col-sm-6 agileits_team_grid">
+					<div class="agileits_team_grid_figure">
+						<img src="/static/assets/images/gundu.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="agileits_team_grid_figure_social">
+						<ul class="w3ls_social">
+							<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+					<h4> Naema <span>guide</span></h4>
+					<p>Adventures are the best way to learn.</p>
+				</div>
+				<div class="col-lg-3 col-sm-6 agileits_team_grid">
+					<div class="agileits_team_grid_figure">
+						<img src="/static/assets/images/ruxh.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="agileits_team_grid_figure_social">
+						<ul class="w3ls_social">
+							<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+					<h4>Rushda <span>guide</span></h4>
+					<p>Dare to live the life you’ve always wanted.</p>
+				</div>
+				<div class="col-lg-3 col-sm-6 agileits_team_grid">
+					<div class="agileits_team_grid_figure">
+						<img src="/static/assets/images/anugrah.jpg" alt=" " class="img-responsive" />
+					</div>
+					<div class="agileits_team_grid_figure_social">
+						<ul class="w3ls_social">
+							<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+							<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+					<h4>Anugrah  <span>guide</span></h4>
+					<p>The journey of a thousand miles begins with a single step.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //team -->
+{% endblock %}

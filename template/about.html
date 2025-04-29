@@ -1,0 +1,141 @@
+{% extends "headerfooterinner.html"%}
+	{% block content %}
+<!-- welcome -->
+<style >
+							{% for x in data %}
+
+
+	.bgs{{forloop.counter}} {
+	background: url('{{x.image.url}}')no-repeat 0px 0px !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	-ms-background-size: cover !important;
+	background-size: cover !important;
+	min-height: 192px !important;
+}
+
+							{% endfor %}
+
+</style>
+<section class="welcome py-5">
+	<div class="container py-md-3">
+	<h3 class="heading text-center mb-md-5 mb-4"> About Us </h3>
+		<div class="row welcome-grids">
+			<div class="col-lg-6">
+				<h4 class="mb-3">welcome to the travel world</h4>
+				<h3>Remember that happiness is a way of travel, not a destination.</h3>
+				<p class="my-4">Aliquam consequat rhoncus ipsum et hendrerit. Proin sed nibhila rin iaculis, aliquet nunc nec, ornare nulla. Duis maximus faucibus ipsum consectetur. Donec elementum hendrerit arcu id rhoncus initis. lot Suspendisse ut elementum nunc. Aenean aliquam porta sem ins tincidunt congue. Phasellus dictum viverra sem id vehicula. Fus cenec elementum sapien.</p>
+				<!-- <a href="#">Read More</a> -->
+			</div>
+			<div class="col-lg-6 mt-lg-0 mt-5 welcome-grid3">
+				<div class="position">
+					<img src="/static/assets/images/banner1.jpg" alt="" class="img-fluid" />
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //welcome -->
+
+<!-- welcome bottom -->
+<section class="welcome-bottom">
+	<div class="welcome-bottom-layer py-5">
+		<div class="container py-lg-5 py-sm-3">
+			<h4 class="mb-2">Travel doesn't become adventure until you leave yourself behind </h4>
+			<p class="mb-4">Find your perfecrt tour</p>
+			<!-- <a href="/index/">Read More</a> -->
+		</div>
+	</div>
+</section>
+
+<!-- //welcome bottom -->
+<section class=" team py-0" id="pricing" >
+		<div class="container-fluid p-sm-4">
+		<h2 class="heading text-center mb-sm-5 mb-4">Best Offers</h2>
+			<div class=" inner-sec-w3ls-agileits">
+				<div class="gallery_grids">
+					<div class="card-desk text-center">
+						<div class="row prime ">
+							<!-- <h3>{{x.categoryfield}}</h3> -->
+							{% for x in data %}
+
+							<div class="col-lg-3 col-sm-6 mt-sm-4 mt-5 price-main-info card box-shadow">
+								<a href="/details/?pid={{x.id}}">
+								<div class="card-header bgs{{forloop.counter}}">
+									<h4 style="background-color: rgba(0, 0, 0, .3); font-weight: bolder;">{{x.location.locationadd}}
+										<br>
+										<span><b>{{x.destination}}</b></span>
+									</h4>
+									<div class="offer">
+										<h3>{{x.discpercentage}}% OFF</h3>
+									</div>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title pricing-card-title">
+										<span class="align-top"></span>&#8377; <del>{{x.amount}}</del> {{x.discamount}}
+										<br>
+										<small class="text-muted"> {{x.days}} day /</small>
+										<small class="text-muted">{{x.nights}} night</small>
+									</h5>
+									
+								</div>
+							</a>
+							</div>
+							{% endfor %}
+							<div class="row welcome-grids mx-auto ">
+								<div class="col-lg-0 mt-3">
+									<a href="/discount/">More Offers</a>
+								</div>
+							</div>					
+						</div>
+						
+					</div>
+					
+				</div>
+				
+			</div>			
+		</div>
+	</section>
+<!-- best offers -->
+<!-- <section class="best-offers py-5">
+	<div class="container py-3">
+		<h3 class="heading text-center mb-sm-5 mb-3"> Best Offers </h3>
+			<div class="row offer-grids pt-5">
+				<div class="col-lg-3 col-sm-6 offer-grid">
+					<img src="/static/assets/images/b1.jpg" alt="" class="img-fluid" />
+					<h4 class="mt-3">Turkey</h4>
+					<p class="mt-2">Istanbul, Pamukkale, Bosporus, Izmir - 5 days</p>
+					<div class="offer">
+						<h3>30% off </h3>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 mt-sm-0 mt-5 offer-grid">
+					<img src="/static/assets/images/b2.jpg" alt="" class="img-fluid" />
+					<h4 class="mt-3">Spain</h4>
+					<p class="mt-2">Barcelona, Granada, Seville, Madrid - 7 days</p>
+					<div class="offer">
+						<h3>30% off</h3>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 mt-lg-0 mt-5 offer-grid">
+					<img src="/static/assets/images/b5.jpg" alt="" class="img-fluid" />
+					<h4 class="mt-3">Italy</h4>
+					<p class="mt-2">Rome, Florence, Venice, pisa - 4 days</p>
+					<div class="offer">
+						<h3>30% off</h3>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 mt-lg-0 mt-5 offer-grid">
+					<img src="/static/assets/images/b4.jpg" alt="" class="img-fluid" />
+					<h4 class="mt-3">London</h4>
+					<p class="mt-2">Tower of london, Big Ben, London Eye - 9 days</p>
+					<div class="offer">
+						<h3>30% off</h3>
+					</div>
+				</div>
+			</div>
+	</div>
+</section> -->
+<!-- //best offers -->
+{% endblock %}

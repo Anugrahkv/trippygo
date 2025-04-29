@@ -1,0 +1,133 @@
+{% extends "headerfooterinner.html"%}
+	{% block content %}
+
+
+<!-- //services -->	
+<style>
+.checked {
+  color: orange;
+}
+</style>
+<!-- testimonials -->
+	<div class="testimonials pt-lg-5 pb-lg-0 pb-4">
+		<div class="container">
+		<h3 class="heading text-center mb-md-5 mb-3">Happy Clients</h3>
+			<div class="w3_testimonials_grids">
+				<div id="slideshow" class="disabled">
+<!-- 					<button class="previous"><b>« Previous</b></button>
+					<button class="next"><b>Next »</b></button> -->
+					<div class="strip">
+						<div class="row slide sticky">
+							{% for x in data %}
+							<div class="col-lg-6 agileinfo_team_grid mt-sm-4 my-5">
+								<div class="agileinfo_team_grid1">
+									<div class="agileinfo_team_grid1_text">
+										<div class="agileinfo_team_grid1_pos">
+											<img src="{{x.image.url}}" alt=" " style="object-fit: cover;" class="img-responsive" />
+										</div>
+										<h4>{{x.name}}</h4><br>
+										 {% if x.star == "1" %}
+										<p>Star Rating
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star "></span>
+										<span class="fa fa-star "></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										</p>
+										 {% elif x.star == "2" %}
+										<p>Star Rating
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star "></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										</p>
+										 {% elif x.star == "3" %}
+										<p>Star Rating
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										</p>
+										 {% elif x.star == "4" %}
+										<p>Star Rating
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										</p>
+										 {% elif x.star == "5" %}
+										<p>Star Rating
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										</p>
+										{% endif %}
+										<!-- <div class="clearfix"></div> -->
+										<p>{{x.experience}}.</p>
+										<p>submitted on: {{x.date}}<br>
+										package:  <a href="/details/?pid={{x.package_id.id}}">{{x.package_id.destination}}</a></p>
+									</div>									
+								</div>
+							</div>
+							{% endfor %}
+							<!-- <div class="col-lg-6 agileinfo_team_grid">
+								<div class="agileinfo_team_grid1">
+									<div class="agileinfo_team_grid1_text">
+										<div class="agileinfo_team_grid1_pos">
+											<img src="/static/assets/images/b2.jpg" alt=" " class="img-responsive" />
+										</div>
+										<h4>John Mark</h4>
+										
+										<div class="clearfix"></div>
+										<p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<div class="row slide">
+							<div class="col-lg-6 agileinfo_team_grid">
+								<div class="agileinfo_team_grid1">
+									<div class="agileinfo_team_grid1_text">
+										<div class="agileinfo_team_grid1_pos">
+											<img src="/static/assets/images/b1.jpg" alt=" " class="img-responsive" />
+										</div>
+										<h4>Thomus Lii</h4>
+										
+										<div class="clearfix"></div>
+										<p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+									</div>
+									
+								</div>
+							</div>
+							<div class="col-lg-6 agileinfo_team_grid">
+								<div class="agileinfo_team_grid1">
+									<div class="agileinfo_team_grid1_text">
+										<div class="agileinfo_team_grid1_pos">
+											<img src="/static/assets/images/b4.jpg" alt=" " class="img-responsive" />
+										</div>
+										<h4>Joseph Carl</h4>
+										
+										<div class="clearfix"></div>
+										<p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+									</div>
+									
+								</div>
+							</div> -->
+						</div>
+
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+<!-- //testimonials -->
+
+{% endblock %}

@@ -1,0 +1,873 @@
+{% extends "headerfooterinner.html"%}
+	{% block content %}
+
+<!-- <html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+<!-- </head>
+<body> -->
+
+  <script src="https://kit.fontawesome.com/c2a3a64f65.js" crossorigin="anonymous"></script>
+
+<style type="text/css">
+  .accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+}
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+
+</style>
+<style>
+  $grey:  #E9E9E9;
+$dark-grey: #323B40;
+
+.container {
+  padding: 2rem 0rem;
+}
+
+h4{
+  margin: 3rem 0rem 2rem;  
+}
+
+.image-parent {
+  background-color: $grey;
+  max-width: 400px;
+  min-height: 300px;
+}
+
+.img-wrapper {
+  width: 10%;
+  margin: 0rem 1.5rem 0rem 0rem;
+}
+
+.img-wrapper-20 {
+  width: 20%;
+  margin: 0rem 1.5rem 0rem 0rem;
+}
+
+.c-container {
+  background-color: $grey;
+  border-radius: 0.5rem;
+  padding: 1.2rem 1.2rem;
+  margin: 1rem 0rem;
+}
+
+.overlay-dark {
+  background-color: rgba(black, 0.4);
+}
+
+.overlay-grey {
+  background-color: rgba(#596164, 0.4);
+}
+
+.overlay-yellow {
+  background-color: rgba(#fee140, 0.4);
+}
+
+.overlay-orange {
+  background-color: rgba(#c43a30, 0.4);
+}
+
+.overlay-blue-gradient {
+  background-image: linear-gradient(135deg, rgba(#96deda, 0.5) 0%, rgba(#537895, 0.7) 100%);
+}
+.button {
+  border: 1;
+  color: white;
+  padding: 12px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+/*  cursor: pointer;*/
+}
+.button {background-color: #FFA500;}
+
+</style>
+
+<style type="text/css">
+  
+.quantity,.child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.quantity__minus,.child__minus,
+.quantity__plus,.child__plus {
+  display: block;
+  width: 22px;
+  height: 23px;
+  margin: 0;
+  background: #dee0ee;
+  text-decoration: none;
+  text-align: center;
+  line-height: 23px;
+}
+.quantity__minus,.child__minus:hover,
+.quantity__plus,.child__plus:hover {
+  background: #575b71;
+  color: #fff;
+} 
+.quantity__minus,.child__minus {
+  border-radius: 3px 0 0 3px;
+}
+.quantity__plus,.child__plus {
+  border-radius: 0 3px 3px 0;
+}
+.quantity__input,.child__input,.date {
+  width: 32px;
+  height: 19px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border-top: 2px solid #dee0ee;
+  border-bottom: 2px solid #dee0ee;
+  border-left: 1px solid #dee0ee;
+  border-right: 2px solid #dee0ee;
+  background: #fff;
+  color: #8184a1;
+}
+.quantity__minus,.quantity__minus:link,
+.quantity__plus,.quantity__plus:link {
+  color: #8184a1;
+} 
+.quantity__minus,.child__minus:visited,
+.quantity__plus,.child__plus:visited {
+  color: #fff;
+}
+</style>
+<style>
+  .font {
+    font-size: 20px;
+  }
+
+
+
+
+  .containers{
+    width: 550px;
+    max-width: 550px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    outline: 5px solid black;
+}
+.containers .carousel{
+    width: 550px;
+    max-width: 550px;
+    height: 350px;
+    display: flex;
+}
+@keyframes opacity{
+    from{
+        opacity: 0.4;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.containers .carousel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#prev{
+    position: absolute;
+    top: 47%;
+    left: 2%;
+    padding: 11px 16px;
+    cursor: pointer;
+    background: white;
+    outline: none;
+    border: 1px solid black;
+    font-size: 19px;
+    font-weight: bold;
+    border-radius: 50%;
+    transition: .3s ease;
+}
+#next{
+    position: absolute;
+    top: 47%;
+    right: 2%;
+    padding: 11px 16px;
+    cursor: pointer;
+    background: white;
+    outline: none;
+    border: 1px solid black;
+    font-size: 19px;
+    font-weight: bold;
+    border-radius: 50%;
+    transition: .3s ease;
+}
+#prev:hover , #next:hover{
+    background: rgb(14, 13, 13);
+    color: white;
+}
+  </style>
+
+  <!-- <link rel="stylesheet" href="/static/slider/style.css"> -->
+  <!-- <script  src="/static/slider/script.js"></script> -->
+
+
+<div>
+  <div class="container">
+{% for x in query %}
+
+    <div class="d-flex justify-content-start c-container">
+      <div class="w-50">
+      <!-- <div class="col-lg-6 mt-lg-0 mt-5 welcome-grid3"> -->
+      <!-- <div class="position">
+      <img src="{{x.image.url}}" class="img-fluid" alt="">
+      
+      </div> -->
+      <div class="containers">
+    <div class="carousel">
+      {% for x in data %}
+      <img id="img1" src="{{x.image1.url}}" alt="">
+      <img id="img2" src="{{x.image2.url}}" alt="">
+      <img id="img3" src="{{x.image3.url}}" alt="">
+      {% endfor %}
+    </div>
+    <button id="prev"><i class="fas fa-chevron-left"></i></button>
+    <button id="next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+      </div>
+      <div class="w-10"> 
+
+      <div class="m-4">
+        <h5 class="card-title pricing-card-title">
+          <h3 style="margin-top: -26px !important;"><b>{{x.destination}}</b></h3>
+          <p class="text-muted font"> {{x.days}} day / {{x.nights}} night</p>
+          <!-- <br> -->
+          <p class="text-muted font mt-1"></p><b style="font-size:22px;">    &#8377; {% if x.discamount %} <del> {{x.amount}}</del> {{x.discamount}}
+          {% else %} {{x.amount}} {% endif %}</b>
+          <!-- <div class="offer">
+            <h3>{{x.discpercentage}}% OFF</h3>
+          </div> -->
+          <input type="hidden" name="" value="{% if x.discamount %}  {{x.discamount}} {% else %} {{x.amount}} {% endif %}" id="tamount">
+          <br>
+          <p class="text-muted font mt-1"></p><i style="font-size:17px;">{% if x.specialcategory %}
+          {{x.specialcategory}} special package
+          <!--  <p class="text-muted font mt-1"></p><b><i>{% if x.specialcategory == "Solo" %}
+          {% else %}
+          {%  endif %}</i></b>
+           <p class="text-muted font mt-1"></p><b><i>{% if x.specialcategory == "Honeymoon" %}
+          1 adult = 1 couple
+          {% else %}
+          {%  endif %}</i></b>
+ -->          {% else %}
+          {%  endif %}</i>
+
+
+          <div class="row">
+            <div class="col text mt-2">
+              {% if request.session.myid %}
+              <button type="button" class="button button" data-toggle="modal" data-target="#exampleModal">BOOK NOW</button>
+              {% else %}
+              <button type="button" class="button button " onclick="document.location='/login/'">Login to book now </button>
+
+              {% endif %}
+            </div>
+          </div>
+        </h5>
+
+        <!-- <h3>{{x.amount}}</h3> -->
+        <!-- <div class="col-lg-4 col-md-6 agileits_w3layouts_contact_gridl"> -->
+        <!-- <div class="agileits_mail_grid_right_grid"> -->
+          <h4 class="m-1 mt-4">For Customization</h4>
+          <ul class="contact_info m-2">
+            <li><span aria-hidden="true"></span>Trippygo Travel Agency,kannur,Kerala,India</span>.</li>
+            <li><span aria-hidden="true"></span><a href="mailto:trippygo@gmail.com">trippygo@gmail.com</a></li>
+            {% if x.cnum %}
+            <!-- <li><span aria-hidden="true"></span><a class="btn btn-success " href="tel:{{x.cnum}}"><i class='fa-solid fa-phone'></i> {{x.cnum}}</a></li>
+             <li><span aria-hidden="true"></span><a class="btn btn-success " href="tel:{{x.cnum}}"><i class='fa-brands fa-whatsapp'></i> {{x.cnum}}</a></li> -->
+             <div class="" style="margin-top: 16px !important;">
+              <a class="btn btn-light" href="tel:+91{{x.cnum}}"><i class='fa-solid fa-phone'></i> Call us</a>
+              <a class="btn btn-success " href="https://wa.me/91{{x.cnum}}"><i class='fa-brands fa-whatsapp'></i> Chat with us</a>
+            </div>
+            {% else %}
+                  <div class="" style="margin-top: 16px !important;">
+              <a class="btn btn-light" href="tel:7510352513"><i class='fa-solid fa-phone'></i> Call us</a>
+              <a class="btn btn-success " href="https://wa.me/917510352513"><i class='fa-brands fa-whatsapp'></i> Chat with us</a>
+
+
+            {% endif %}
+          </ul>
+          
+
+      </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+ <div class="container">
+    <div id="accordion" class="accordion">
+        <div class="card mb-0">
+           <!-- <a href="#" class="btn btn-info" role="button">Link Button</a> -->
+
+          {% if x.day1 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" href="#collapseOne">
+                <a class="card-title">
+                    Day 1
+                </a>
+            </div>
+            <div id="collapseOne" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day1}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day2 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                <a class="card-title">
+                  Day 2
+                </a>
+            </div>
+
+            <div id="collapseTwo" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day2}}
+                </p>
+            </div>
+             {% endif %}
+             {% if x.day3 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                <a class="card-title">
+                  Day 3
+                </a>
+            </div>
+            <div id="collapseThree" class="collapse" data-parent="#accordion" >
+                <div class="card-body">{{x.day3}}
+                </div>
+            </div>
+            {% endif %}
+            {% if x.day4 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                <a class="card-title">
+                  Day 4
+                </a>
+            </div>
+            <div id="collapse4" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day4}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day5 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                <a class="card-title">
+                  Day 5
+                </a>
+            </div>
+            <div id="collapse5" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day5}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day6 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                <a class="card-title">
+                  Day 6
+                </a>
+            </div>
+            <div id="collapse6" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day6}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day7 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                <a class="card-title">
+                  Day 7
+                </a>
+            </div>
+            <div id="collapse7" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day7}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day8 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                <a class="card-title">
+                  Day 8
+                </a>
+            </div>
+            <div id="collapse8" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day8}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day9 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                <a class="card-title">
+                  Day 9
+                </a>
+            </div>
+            <div id="collapse9" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day9}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day10 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+                <a class="card-title">
+                  Day 10
+                </a>
+            </div>
+            <div id="collapse10" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day10}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day11 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse11">
+                <a class="card-title">
+                  Day 11
+                </a>
+            </div>
+            <div id="collapse11" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day11}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day12 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse12">
+                <a class="card-title">
+                  Day 12
+                </a>
+            </div>
+            <div id="collapse12" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day12}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day13 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse13">
+                <a class="card-title">
+                  Day 13
+                </a>
+            </div>
+            <div id="collapse13" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day13}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day14 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse14">
+                <a class="card-title">
+                  Day 14
+                </a>
+            </div>
+            <div id="collapse14" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day14}}
+                </p>
+            </div>
+            {% endif %}
+            {% if x.day15 != "" %}
+            <div class="card-header collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse15">
+                <a class="card-title">
+                  Day 15
+                </a>
+            </div>
+            <div id="collapse15" class="card-body collapse" data-parent="#accordion" >
+                <p>{{x.day15}}
+                </p>
+            </div>
+            {% endif %}
+           
+        </div>
+        <!-- <button type="submit" class="bookbutton">Book Now</a> -->
+    </div>
+    <!-- <div class="container"> -->
+      <!-- <div class="center">
+        <button class="button button">Book Now</button>
+      </div> -->
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="button button" data-toggle="modal" data-target="#exampleModal">
+   BOOK NOW
+  </button>
+ -->
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Book Now</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="/bookings/?tid={{x.id}}" method="POST">
+          {% csrf_token %}
+        <div class="modal-body">
+  <div class="quantity">
+    {% if x.specialcategory == "Honeymoon" %}
+    no. couple &nbsp;{% else %}
+    no. adult &nbsp;
+    {% endif %}
+     {% if x.specialcategory == "Honeymoon" or x.specialcategory == "Solo"  %}
+
+  {% else %} 
+    <a href="#" class="quantity__minus"><span>-</span></a>
+  {% endif %}
+    <input name="adults" type="text" class="quantity__input" value="1" {% if x.specialcategory == "Honeymoon" or x.specialcategory == "Solo"  %}
+  {% else %} readonly {% endif %}>
+   {% if x.specialcategory == "Honeymoon" or x.specialcategory == "Solo"  %}
+
+  {% else %}  
+       <a href="#" class="quantity__plus"><span>+</span></a> 
+
+  {% endif %}
+    <input type="text" name="adultamount" id="adultam" value="{% if x.discamount %}  {{x.discamount}} {% else %} {{x.amount}} {% endif %}" style="width:90px;margin-left: 10px;" readonly>
+  </div>
+  {% if x.specialcategory == "Honeymoon" or x.specialcategory == "Solo"  %}
+    <input name="childrens" type="hidden" value="0">
+    <input name="childamount" value="0" type="hidden">
+  {% else %}
+  <div class="child mt-2">
+    no. children&nbsp;
+    <a href="#" class="child__minus"><span>-</span></a>
+    <input name="childrens" type="text" class="child__input" value="0">
+    <a href="#" class="child__plus"><span>+</span></a>
+    <input type="text" name="childamount" value="0" id="childam" style="width:90px;margin-left: 10px;">
+
+  </div>
+  {% endif %}
+
+  <div class="child mt-2"> trip date&nbsp;
+    <input type="date" name="trip_in" id="date_picker" >
+  </div>
+  <!-- <div class="child mt-2"> Total amount&nbsp;
+    <input type="tel" id="ttam" value="{% if x.discamount %}  {{x.discamount}} {% else %} {{x.amount}} {% endif %}" readonly>
+  </div> -->
+   <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+          <!-- <a href="/bookings/"> -->
+          <button type="submit" class="btn btn-primary">Book Now</button>
+          <!-- </a> -->
+        </div>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+    <!-- </div> -->
+    <!-- <button type="submit" class="bookbutton">Book Now</a> -->
+    <!-- <h5 class="bookbutton">BOOK NOW</h5> -->
+
+</div>
+ {% endfor %}
+ <style>
+.checked {
+  color: orange;
+}
+</style>
+
+<div class="testimonials pt-lg-5 pb-lg-0 pb-4">
+    <div class="container">
+    <h3 class="heading text-center mb-md-5 mb-3">Happy Clients</h3>
+      <div class="w3_testimonials_grids">
+        <div id="slideshow" class="disabled">
+          <button class="previous"><b>« Previous</b></button>
+          <button class="next"><b>Next »</b></button>
+          <div class="strip">
+            <div class="row slide sticky">
+              {% for x in query1 %}
+              <div class="col-lg-6 agileinfo_team_grid mt-sm-4 my-5">
+                <div class="agileinfo_team_grid1">
+                  <div class="agileinfo_team_grid1_text">
+                    <div class="agileinfo_team_grid1_pos">
+                      <img src="{{x.image.url}}" alt=" " style="object-fit: cover;" class="img-responsive" />
+                    </div>
+                      <h4>{{x.name}}</h4><br>
+                     {% if x.star == "1" %}
+                    <p>Star Rating
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    </p>
+                     {% elif x.star == "2" %}
+                    <p>Star Rating
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star "></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    </p>
+                     {% elif x.star == "3" %}
+                    <p>Star Rating
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    </p>
+                     {% elif x.star == "4" %}
+                    <p>Star Rating
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    </p>
+                     {% elif x.star == "5" %}
+                    <p>Star Rating
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    </p>
+                    {% endif %}
+                    <!-- <div class="clearfix"></div> -->
+                    <p>{{x.experience}}.</p>
+                    <p>submitted on: {{x.date}}<br>
+                    <!-- package:  <a href="/details/?pid={{x.package_id.id}}">{{x.package_id.destination}}</a></p> -->
+                  </div>                  
+                </div>
+              </div>
+              {% endfor %}
+              <!-- <div class="col-lg-6 agileinfo_team_grid">
+                <div class="agileinfo_team_grid1">
+                  <div class="agileinfo_team_grid1_text">
+                    <div class="agileinfo_team_grid1_pos imgs">
+                      <img src="/static/assets/images/b1.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <h4>Mark Henry</h4>
+                    <div class="clearfix"></div>
+                    <p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-6 agileinfo_team_grid">
+                <div class="agileinfo_team_grid1">
+                  <div class="agileinfo_team_grid1_text">
+                    <div class="agileinfo_team_grid1_pos imgs" >
+                      <img src="/static/assets/images/b2.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <h4>John Mark</h4>
+                    <div class="clearfix"></div>
+                    <p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="row slide">
+              <div class="col-lg-6 agileinfo_team_grid">
+                <div class="agileinfo_team_grid1">
+                  <div class="agileinfo_team_grid1_text">
+                    <div class="agileinfo_team_grid1_pos">
+                      <img src="/static/assets/images/b1.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <h4>Thomus Lii</h4>
+                    <div class="clearfix"></div>
+                    <p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-lg-6 agileinfo_team_grid">
+                <div class="agileinfo_team_grid1">
+                  <div class="agileinfo_team_grid1_text">
+                    <div class="agileinfo_team_grid1_pos">
+                      <img src="/static/assets/images/b4.jpg" alt=" " class="img-responsive" />
+                    </div>
+                    <h4>Joseph Carl</h4>
+                    <div class="clearfix"></div>
+                    <p>Sed eu sollicitudin ex. Donec elit malesuada maur ac lectus molestie tristique amet.</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div> -->
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<script >
+  const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const carousel = document.querySelector('.container .carousel');
+
+let size = 1;
+let index = 0;
+
+nextBtn.addEventListener('click', ()=>{
+    if(index === 2){
+        carousel.style.transform = 'translateX(' + 0 + 'px)';
+        carousel.style.transition = 'none';
+        index = 0;
+        size = 1;
+        return;
+    }
+    else if(index === 1){
+        carousel.style.transform = 'translateX(' + -1100 + 'px)';
+        carousel.style.transition = '.3s ease';
+        index = 2;
+        size = 2;
+        return;
+    }
+    else{
+        carousel.style.transform = 'translateX(' + -550 + 'px)';
+        carousel.style.transition = '.3s ease';
+        index = 1;
+        size = 1;
+        return;
+    }
+});
+
+prevBtn.addEventListener('click', ()=>{
+    if(index === 0){
+        carousel.style.transform = 'translateX(' + -1100 + 'px)';
+        carousel.style.transition = 'none';
+        index = 2;
+        size = 1;
+        return;
+    }
+    else if(index === 1){
+        carousel.style.transform = 'translateX(' + (0) + 'px)';
+        carousel.style.transition = '.3s ease';
+        index = 0;
+        size = 1;
+        return;
+    }
+    else{
+        carousel.style.transform = 'translateX(' + (-550) + 'px)';
+        carousel.style.transition = '.3s ease';
+        index = 1;
+        size = 2;
+        return;
+    }
+
+});
+</script>
+
+<script>
+  $(document).ready(function() {
+  const minus = $('.quantity__minus');
+  const plus = $('.quantity__plus');
+  const input = $('.quantity__input');
+  minus.click(function(e) {
+    e.preventDefault();
+    var value = input.val();
+    if (value > 1) {
+      value--;
+    }
+    input.val(value);
+     var amm= $("#tamount").val()
+    if (value == 0){
+      a= amm;
+       $("#adultam").val(a);
+    }
+    else{
+    var a = value*amm;
+     $("#adultam").val(a);
+  }
+    // alert(a);
+   
+  });
+ 
+  
+  plus.click(function(e) {
+    e.preventDefault();
+    var value = input.val();
+    value++;
+    input.val(value);
+    var amm= $("#tamount").val()
+    if (value == 0){
+      a= amm;
+       $("#adultam").val(a)
+    }
+    else{
+    var a = value*amm;
+     $("#adultam").val(a)
+  }
+    // alert(a);
+   ;
+  })
+});
+   $(document).ready(function() {
+  const minus = $('.child__minus');
+  const plus = $('.child__plus');
+  const input = $('.child__input');
+  minus.click(function(e) {
+    e.preventDefault();
+    var value = input.val();
+    if (value > 0) {
+      value--;
+    }
+    input.val(value);
+    var amm= $("#tamount").val()
+    if (value == 0){
+      c= amm;
+      $("#childam").val(0);
+    }
+    else{
+    var c = value*((amm*85)/100);
+     $("#childam").val(c);
+  }
+    // alert(c);
+   
+  });
+  
+  plus.click(function(e) {
+    e.preventDefault();
+    var value = input.val();
+    value++;
+    input.val(value);
+    var amm= $("#tamount").val()
+    var c = value*((amm*85)/100)
+    // alert(c);
+     $("#childam").val(c);
+
+  })
+});
+    var today = new Date();
+        var dd = String(today.getDate() +4).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        $('#date_picker').attr('min',today);
+</script>
+
+<!-- <script type="text/javascript">
+  function totalamount(){
+     var tampunt=document.getElementById("ttam").value;
+     var adultam=document.getElementById("adultam").value;
+     var childam=document.getElementById("childam").value;
+     var ccamount= adultam+childam;
+     document.getElementById("ttam").value = ccamount;
+
+     
+
+
+  }
+ 
+
+</script> -->
+<!-- </body>
+</html> -->
+
+{% endblock %}

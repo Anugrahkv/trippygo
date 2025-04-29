@@ -1,0 +1,73 @@
+{% extends "headerfooterinner.html"%}
+  {% block content %}
+ <style type="text/css">
+   #hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+ </style>   
+<!-- contact -->
+<section class="w3ls-section contact py-5">
+<h5 class="text-center" id='hideMe' style="color:green">{{msg}}</h5>
+
+<form action="/review/?pid={{pkg}}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container py-sm-3">
+    <div class="w3ls-title">
+      <h2 class="heading text-center mb-sm-5 mb-4">REVIEW FORM</h2>
+    </div>
+    
+  <div class="form-group">
+    <label for="exampleInputEmail1">NAME</label>
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">IMAGE</label>
+    <input type="file" class="form-control" id="image" name="image" required>
+    <small id="emailHelp" class="form-text text-muted">Upload your moments</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">RATE YOUR EXPERIENCE</label>
+    <select class="form-control" id="star" name="star" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlTextarea3">EXPERIENCE</label>
+  <textarea class="form-control" id="experience" rows="7" name="experience" required></textarea>
+</div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+     
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+<!-- //contact -->
+{% endblock %}

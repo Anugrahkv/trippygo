@@ -1,0 +1,87 @@
+{% extends "headerfooterinner.html"%}
+	{% block content %}
+
+
+
+<section class="w3ls-section contact py-5">
+	<div class="container py-sm-3">
+		<div class="w3ls-title">
+			<h2 class="heading text-center mb-sm-5 mb-4">ORDERS</h2>
+		</div>
+		<section id="main-content">
+			<section class="wrapper"> 
+				<div class="table-agile-info">
+					<div class="panel panel-default">
+						<div class="table-responsive">
+							<table class="table table-striped b-t b-light">
+								<thead>
+									<tr>
+										<!-- <th> ID</th> -->
+										<th>Package Location</th>
+            							<th>Package Destinations</th>
+            							<th>Booked date</th>
+            							<th>Days</th>
+            							<th>Nights</th>
+            							<th>Trip in</th>
+            							<th>Adults</th>
+            							<th>childrens</th>
+            							<th>Amount</th>
+            							<th>Status</th>
+            							<th></th>
+            							<!-- <th></th> -->
+            							<th style="width:30px;"></th>
+          							</tr>
+        						</thead>
+        						<tbody>
+
+        									{% for x in query %}
+			        							<tr>
+			            							<!-- <td>{{forloop.counter}}</td> -->
+			            							<td>{{x.bookpackageid.location.locationadd}}</td>
+			           								<td>{{x.bookpackageid.destination}}</td>
+			           								<td>{{x.date}}</td>
+			            							<td>{{x.bookpackageid.days}}</td>
+			           								<td>{{x.bookpackageid.nights}}</td>
+			            							<td>{{x.trip_in}}</td>
+			            							{% if x.bookpackageid.specialcategory == "Honeymoon" or x.bookpackageid.specialcategory == "Solo"  %}
+			            							<td>{{x.bookpackageid.specialcategory}}</td>
+			            							<td></td>
+			            							{% else %}
+			            							<td>{{x.adults}}</td>
+			            							<td>{{x.childrens}}</td>
+			            							{% endif %}
+			            							<td>{{x.amount}}</td>
+			            							<td>{{x.status}}</td>
+
+			            							<!-- {% if x.status == "pending" %}
+			            							<td style="text-align: center;"><a href="/bookings/?tid={{x.id}}" class="btn btn-success ">Book</a>
+			            							{% endif %} -->
+			            							{% if reviewdate == 'yes' %}
+			            							{% if x.status == "booked" %}
+			            							<td><a href="/review/?pid={{x.id}}">Submit your experience</a></td>
+			            							
+			            							{% else %}
+			            							
+			            							{% endif %}
+			            							{% endif %}
+			            							{% if cdate <= cancel  %}
+			            							{% if x.status == "booked" %}
+			            							<td style="text-align: center;"><a href="/cancel/?bid={{x.id}}" class="btn btn-success ">Cancel</a>
+			            							{% endif %}
+			            							{% endif %}
+			            							
+			            						</tr>
+
+											{% endfor %}
+
+        						</tbody>
+     						</table>
+     					</div>
+     				</div>
+     			</div>
+     		</section>
+     	</section>
+	</div>
+</section>
+
+{% endblock %}

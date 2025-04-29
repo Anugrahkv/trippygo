@@ -1,0 +1,71 @@
+{% extends "admin/headerfooter.html" %}
+{% block content %}
+<!--sidebar start-->
+
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="form-w3layouts">
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            ADD
+                            <!-- <span class="tools pull-right"> -->
+                                <!-- <a class="fa fa-chevron-down" href="javascript:;"></a> -->
+                                <!-- <a class="fa fa-cog" href="javascript:;"></a> -->
+                                <!-- <a class="fa fa-times" href="javascript:;"></a> -->
+                             <!-- </span> -->
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="POST" action="/addlocation/" >
+                                    {% csrf_token %}
+                               
+                                    <div class="form-group ">
+                                        <label for="packagetype" class="control-label col-lg-3">Add Location</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="locationadd" name="locationadd" type="text" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-6">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-default" type="button">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+          </div>
+</section>
+<!-- <script type="text/javascript">
+    function packtype(){
+        var m =document.getElementById('ptype').value;
+        if (m =="family"){
+            document.getElementById("camount").style.display = "block";
+            
+
+
+
+
+        }
+        
+
+        else{
+            document.getElementById("camount").style.display = "none";
+
+
+
+
+
+        }
+    }
+</script> -->
+ {% endblock %}

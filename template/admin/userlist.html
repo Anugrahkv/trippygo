@@ -1,0 +1,85 @@
+{% extends "admin/headerfooter.html" %}
+{% block content %}
+
+<!--main content start-->
+<style>
+.actioncenter {
+    text-align: center;
+}
+</style>
+<section id="main-content">
+	<section class="wrapper">
+		<div class="table-agile-info">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+     ORDERS
+    </div>
+    <div class="row w3-res-tb">
+      <div class="col-sm-5 m-b-xs">
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+    <div class="table-responsive">
+      <br>
+       <label for="Location" class="control-label col-lg-3">Filter & Search</label>
+      <br>
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <table class="table table-striped b-t b-light">
+
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Guardian</th>
+            <th>Age</th>
+            <th class="actioncenter">Action</th>
+
+
+            <th style="width:30px;"></th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+
+
+{% for x in query %}
+
+          <tr>
+            <td>{{x.name}}</td>
+           <td>{{x.email}}</td>
+            <td>{{x.gender}}</td>
+            <td>{{x.phone}}</td>
+            <td>{{x.guardian}}</td>
+            <td>{{x.age}}</td>
+            {% if x.status == '1' %}
+            <td style="text-align: center;"><a href="/userreject/?did={{x.id}}" class="btn btn-success "> Approve</a>
+              {% else %} 
+            <td style="text-align: center;"><a href="/useraprove/?did={{x.id}}" class="btn btn-danger"> Reject</a></td>
+            {% endif %}
+            </tr>
+
+{% endfor %}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+ 
+</section>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+{% endblock %}

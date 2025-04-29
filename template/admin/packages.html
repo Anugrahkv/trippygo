@@ -1,0 +1,283 @@
+{% extends "admin/headerfooter.html" %}
+{% block content %}
+<!--sidebar start-->
+
+<!--sidebar end-->
+<!--main content start-->
+
+   <script>
+      function Div() {
+         var Passport1 = document.getElementById("passport");
+         var dvPassport = document.getElementById("tutorial");
+         var dvamount = document.getElementById("discamoun");
+         var dvpercent = document.getElementById("discpercent")
+
+         tutorial.style.display = Passport.value == "SPECIAL PACKAGES" ? "block" : "none";
+         discamoun.style.display = Passport.value == "DISCOUNT OFFERS" ? "block" : "none";
+         discpercent.style.display = Passport.value == "DISCOUNT OFFERS" ? "block" : "none";
+
+      }
+   </script>
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="form-w3layouts">
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            ADD
+                            <!-- <span class="tools pull-right">
+                                <a class="fa fa-chevron-down" href="javascript:;"></a>
+                                <a class="fa fa-cog" href="javascript:;"></a>
+                                <a class="fa fa-times" href="javascript:;"></a>
+                             </span> -->
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="POST" action="/packages/"  enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group ">
+                                        <label for="Location" class="control-label col-lg-3">LOCATION</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class=" form-control" id="location" name="location" type="text" required> -->
+                                            <select class="form-control" name="location">
+                                                <option value="" required>LOCATION</option>
+                                                {% for x in location %}
+                                                <option value="{{x.id}}" required>{{x.locationadd}}</option>
+                                                {% endfor %}
+                                                <!-- <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chattisgarh">Chattisgarh</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharastra">Maharastra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="West Bengal">West Bengal</option> -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="Location" class="control-label col-lg-3">DESTINATION</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="destination" name="destination" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="days" class="control-label col-lg-3">DAYS</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="days" name="days" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="type" class="control-label col-lg-3">NIGHTS</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="nights" name="nights" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="type" class="control-label col-lg-3">NUMBER FOR CUSTOMIZATION</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="cnum" name="cnum" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="type" class="control-label col-lg-3">IMAGE</label>
+                                        <div class="col-lg-3">
+                                            <input class="form-control " id="image" name="image" type="file" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 1</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day1" name="day1" type="text"   required> -->
+                                            <textarea id="day1" name="day1" ></textarea>
+                                            <!-- <textarea id="day1" name="day1" required></textarea> -->
+                                        </div>
+                                    </div>
+        
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 2</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day2" name="day2"  type="text" required> -->
+                                            <textarea id="day2" name="day2" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3" >DAY 3</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day3" name="day3"  type="text" required> -->
+                                            <textarea id="day2" name="day3" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3" >DAY 4</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day4" name="day4"  type="text" required> -->
+                                            <textarea id="day4" name="day4" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3" >DAY 5</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day5" name="day5"  type="text" required> -->
+                                            <textarea id="day5" name="day5" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3" >DAY 6</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day6" name="day6"  type="text" required> -->
+                                            <textarea id="day6" name="day6" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3" >DAY 7</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day7" name="day7"  type="text" required> -->
+                                            <textarea id="day7" name="day7" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 8</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day8" name="day8"   type="text" required> -->
+                                            <textarea id="day8" name="day8" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 9</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day9" name="day9"   type="text" required> -->
+                                            <textarea id="day9" name="day9" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3" >DAY 10</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day10" name="day10"  type="text" required> -->
+                                            <textarea id="day10" name="day10" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 11</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day11" name="day11" type="text"   required> -->
+                                            <textarea id="day11" name="day11" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 12</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day12" name="day12"   type="text" required> -->
+                                            <textarea id="day12" name="day12" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 13</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day13" name="day13"   type="text" required> -->
+                                            <textarea id="day13" name="day13" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="contact" class="control-label col-lg-3"  >DAY 14</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day14" name="day14"   type="text" required> -->
+                                            <textarea id="day14" name="day14" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group centerElement" >
+                                        <label for="amount" class="control-label col-lg-3"  >DAY 15</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control" id="day15" name="day15"   type="text" required> -->
+                                            <textarea id="day15" name="day15" ></textarea>
+                                        </div>
+                                    </div>
+
+                                            <div class="form-group " >
+                                        <label for="contact" class="control-label col-lg-3">CATEGORY</label>
+                                        <div class="col-lg-6">
+                                            <!-- <input class="form-control " id="offercategory" name="offercategory" type="text" required> -->
+                                            <select class="form-control" name="category" id = "Passport" onchange = "Div()" >
+                                            <option value="">Select a Option</option>
+                                            <option value="DISCOUNT OFFERS">DISCOUNT OFFERS</option>
+                                            <option  value="SPECIAL PACKAGES">SPECIAL PACKAGES</option>
+                                            <!-- <option value="normal search">NORMAL SEARCH</option> -->
+                                        </select>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group " id="tutorial" style="display: none">
+                                        <label for="contact" class="control-label col-lg-3">SPECIAL PACKAGES CATEGORY</label>
+                                        <div class="col-lg-6">
+                                    
+                                            <select class="form-control" name="specialcategory" id='specialcategory'>
+                                            <option  value="">Select Category</option>
+                                            {% for x in category %}
+                                            <option value="{{x.categoryfield}}">{{x.categoryfield}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        </div>
+                                        
+                                    </div>
+                    
+
+                                    <div class="form-group ">
+                                        <label for="contact" class="control-label col-lg-3">AMOUNT</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="amount" name="amount" type="text" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group " id="discamoun" style="display: none">
+                                        <label for="contact" class="control-label col-lg-3">DISCOUNT AMOUNT</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="discamount" name="discamount" type="text" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group " id="discpercent" style="display: none">
+                                        <label for="contact" class="control-label col-lg-3">DISCOUNT PERCENTAGE (in %)</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control " id="discpercentage" name="discpercentage" type="text" >
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-6">
+                                            <button class="btn btn-primary" type="submit">Save</button>
+                                            <button class="btn btn-default" type="button">Cancel</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </div>
+</section>
+
+ {% endblock %}

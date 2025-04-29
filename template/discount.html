@@ -1,0 +1,125 @@
+{% extends "headerfooterinner.html"%}
+	{% block content %}
+
+<!--/pricing -->
+<style >
+							{% for x in data %}
+
+
+	.bgs{{forloop.counter}} {
+	background: url('{{x.image.url}}')no-repeat 0px 0px !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	-ms-background-size: cover !important;
+	background-size: cover !important;
+	min-height: 192px !important;
+}
+
+							{% endfor %}
+
+</style>
+	<section class="team py-5" id="pricing">
+		<div class="container-fluid p-sm-3">
+		<h2 class="heading text-center mb-sm-5 mb-4">DISCOUNT OFFER PACKAGES</h2>
+			<div class="inner-sec-w3ls-agileits">
+				<div class="gallery_grids">
+					<div class="card-desk text-center">
+						<div class="row prime">
+							{% for x in data %}
+							<div class="col-lg-3 col-sm-6 mt-sm-4 mt-5 price-main-info card box-shadow">
+								<a href="/details/?pid={{x.id}}">
+								<div class="card-header bgs{{forloop.counter}}">
+									<h4 style="background-color: rgba(0, 0, 0, .3); font-weight: bolder;">{{x.location.locationadd}}
+										<br>
+										<span><b>{{x.destination}}</b></span>
+									</h4>
+									<div class="offer">
+										<h3>{{x.discpercentage}}% OFF</h3>
+									</div>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title pricing-card-title">
+										<span class="align-top"></span>&#8377; <del>{{x.amount}}</del> {{x.discamount}}
+										<br>
+										<small class="text-muted"> {{x.days}} day /</small>
+										<small class="text-muted">{{x.nights}} night</small>
+									</h5>
+									<!-- <ul class="list-unstyled mt-3 mb-4">
+										<li class="py-2 border-bottom">Type {{x.product_type}}</li>
+										<li class="py-2 border-bottom"><i class="fa fa-phone"> {{x.contact}}</i></li> -->
+										<!-- <li class="py-2">Lorem Ipsum is simply</li> -->
+									<!-- </ul> -->
+									<!-- <a href="/bookings/?gt={{x.amount}}" class="btn btn-sm price mt-3">Book</a> -->
+								</div>
+							</a>
+							</div>
+							{% endfor %}
+							<!-- <div class="col-lg-3 col-sm-6 mt-sm-0 mt-5 price-main-info card box-shadow">
+								<div class="card-header">
+									<h4>Turkey
+										<span>Destination</span>
+									</h4>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title pricing-card-title">
+										<span class="align-top">$</span>230
+										<small class="text-muted">/ 7 days</small>
+									</h5>
+									<ul class="list-unstyled mt-3 mb-4">
+										<li class="py-2 border-bottom">Lorem Ipsum is simply</li>
+										<li class="py-2 border-bottom">Lorem Ipsum is simply</li>
+										<li class="py-2">Lorem Ipsum is simply</li>
+									</ul>
+									<a href="contact.html" class="btn btn-sm price mt-3">Contact</a>
+								</div>
+							</div> -->
+							<!-- <div class="col-lg-3 col-sm-6 mt-lg-0 mt-5 price-main-info card box-shadow">
+								<div class="card-header">
+									<h4>Paris
+										<span>Destination</span>
+									</h4>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title pricing-card-title">
+										<span class="align-top">$</span>259
+										<small class="text-muted">/ 8 days</small>
+									</h5>
+									<ul class="list-unstyled mt-3 mb-4">
+										<li class="py-2 border-bottom">Lorem Ipsum is simply</li>
+										<li class="py-2 border-bottom">Lorem Ipsum is simply</li>
+										<li class="py-2">Lorem Ipsum is simply</li>
+									</ul>
+									<a href="contact.html" class="btn btn-sm price mt-3">Contact</a>
+								</div>
+							</div>
+							<div class="col-lg-3 col-sm-6 mt-lg-0 mt-5 price-main-info card box-shadow">
+								<div class="card-header">
+									<h4>Italy
+										<span>Destination</span>
+									</h4>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title pricing-card-title">
+										<span class="align-top">$</span>300
+										<small class="text-muted">/ 12 days</small>
+									</h5>
+									<ul class="list-unstyled mt-3 mb-4">
+										<li class="py-2 border-bottom">Lorem Ipsum is simply</li>
+										<li class="py-2 border-bottom">Lorem Ipsum is simply</li>
+										<li class="py-2">Lorem Ipsum is simply</li>
+									</ul>
+									<a href="/contact/" class="btn btn-sm price mt-3">Contact</a>
+								</div>
+							</div> -->
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--//pricing -->
+
+{% endblock %}

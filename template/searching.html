@@ -1,0 +1,73 @@
+{% extends "headerfooterinner.html"%}
+	{% block content %}
+
+<!--/pricing -->
+<style >
+							{% for x in data %}
+
+
+	.bgs{{forloop.counter}} {
+	background: url('{{x.image.url}}')no-repeat 0px 0px !important;
+	-webkit-background-size: cover !important;
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	-ms-background-size: cover !important;
+	background-size: cover !important;
+	min-height: 192px !important;
+}
+
+							{% endfor %}
+
+</style>
+	<section class="team py-5" id="pricing">
+		<div class="container-fluid p-sm-3">
+		<h2 class="heading text-center mb-sm-5 mb-4">Searched Packages</h2>
+			<div class="inner-sec-w3ls-agileits">
+				<div class="gallery_grids">
+					<div class="card-desk text-center">
+						<div class="row prime">
+							
+							{% if data %}
+							{% for x in data %} 
+							<div class="col-lg-3 col-sm-6 mt-sm-4 mt-5 price-main-info card box-shadow">
+								<a href="/details/?pid={{x.id}}">
+										{% csrf_token %}
+									<div class="card-header bgs{{forloop.counter}}">
+									<h4 style="background-color: rgba(0, 0, 0, .3); font-weight: bolder;">{{x.location.locationadd}}
+										<br>
+										<span><b>{{x.destination}}</b></span>
+									</h4>
+								</div>
+
+									<div class="card-body">
+										<h5 class="card-title pricing-card-title">
+											<span class="align-top"></span>    &#8377; {% if x.discamount %} <del> {{x.amount}}</del> {{x.discamount}}
+											<div class="offer">
+												<h3>{{x.discpercentage}}% OFF</h3>
+											</div>
+											{% else %} {{x.amount}} {% endif %}
+											<br>
+											<small class="text-muted"> {{x.days}} day /</small>
+											<small class="text-muted">{{x.nights}} night</small>
+										</h5>
+									</div>
+									</form>
+								</a>
+							</div>
+							
+							{% endfor %}
+							{% else %}
+							<div class="col-lg-12 col-sm-12 price-main-info card box-shadow">
+							<p style="text-align: center;">No data based on search </p>
+							</div>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!--//pricing -->
+
+{% endblock %}

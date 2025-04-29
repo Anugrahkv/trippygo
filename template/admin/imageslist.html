@@ -1,0 +1,142 @@
+{% extends "admin/headerfooter.html" %}
+{% block content %}
+
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <div class="table-agile-info">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      PACKAGES
+    </div>
+   
+    <div class="table-responsive">
+      <br>
+       <label for="Location" class="control-label col-lg-3">Filter & Search</label>
+      <br>
+      <input class="form-control" id="myInput" type="text" placeholder="Search..">
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <!-- <th style="width:20px;">
+              <label class="i-checks m-b-none">
+                <input type="checkbox"><i></i>
+              </label>
+            </th> -->
+            <th>PACKAGE</th>
+            <th>IMAGE1</th>
+            <th>IMAGE2</th>
+            <th>IMAGE3</th>
+            <th>Action</th>
+
+
+
+
+            <th style="width:30px;"></th>
+          </tr>
+        </thead>
+        <tbody id="myTable">
+
+
+{% for x in query %}
+
+          <tr>
+            <td>{{x.package.destination}}</td>
+            <td><img src="{{x.image1.url}}" style="width:200px;height: 200px;"></td>
+            <td><img src="{{x.image2.url}}" style="width:200px;height: 200px;"></td>
+            <td><img src="{{x.image3.url}}" style="width:200px;height: 200px;"></td>
+            <td><a href="/updatepkgimg/?pid={{x.id}}" class="btn btn-success">Update</a> <br>
+              <br><a href="/deletepkgimg/?pid={{x.id}}" class="btn btn-danger">Delete</a> </td>
+
+
+            </tr>
+
+{% endfor %}
+
+     <!--      <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Formasa</td>
+            <td>8c</td>
+            <td>Jul 22, 2013</td>
+            <td>
+              <a href="" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Avatar system</td>
+            <td>15c</td>
+            <td>Jul 15, 2013</td>
+            <td>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Throwdown</td>
+            <td>4c</td>
+            <td>Jul 11, 2013</td>
+            <td>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Idrawfast</td>
+            <td>4c</td>
+            <td>Jul 7, 2013</td>
+            <td>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Formasa</td>
+            <td>8c</td>
+            <td>Jul 3, 2013</td>
+            <td>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Avatar system</td>
+            <td>15c</td>
+            <td>Jul 2, 2013</td>
+            <td>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+            <td>Videodown</td>
+            <td>4c</td>
+            <td>Jul 1, 2013</td>
+            <td>
+              <a href="" class="active" ui-toggle-class=""><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>
+</section>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+ 
+
+<!--main content end-->
+
+{% endblock %}
